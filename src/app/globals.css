@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+/* ===== ALPINO FONT FACES ===== */
+@font-face {
+  font-family: 'Alpino';
+  src: url('/fonts/alpino/Alpino-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alpino';
+  src: url('/fonts/alpino/Alpino-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alpino';
+  src: url('/fonts/alpino/Alpino-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alpino';
+  src: url('/fonts/alpino/Alpino-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alpino';
+  src: url('/fonts/alpino/Alpino-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alpino';
+  src: url('/fonts/alpino/Alpino-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alpino';
+  src: url('/fonts/alpino/Alpino-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== CSS VARIABLES (Light Mode Default) ===== */
+:root {
+  /* Background Colors */
+  --bg-primary: 250 250 250;
+  --bg-secondary: 245 245 245;
+  --bg-tertiary: 240 240 240;
+
+  /* Surface Colors */
+  --surface-default: 255 255 255;
+  --surface-elevated: 255 255 255;
+  --surface-overlay: 0 0 0 / 0.5;
+
+  /* Text Colors */
+  --text-primary: 23 23 23;
+  --text-secondary: 82 82 82;
+  --text-tertiary: 115 115 115;
+  --text-inverse: 250 250 250;
+
+  /* Accent Colors */
+  --accent-primary: 99 102 241;
+  --accent-primary-hover: 79 70 229;
+  --accent-secondary: 34 197 94;
+  --accent-success: 34 197 94;
+  --accent-warning: 234 179 8;
+  --accent-error: 239 68 68;
+
+  /* Border Colors */
+  --border-default: 229 229 229;
+  --border-subtle: 243 244 246;
+  --border-strong: 209 213 219;
+}
+
+/* ===== DARK MODE ===== */
+.dark {
+  --bg-primary: 10 10 10;
+  --bg-secondary: 23 23 23;
+  --bg-tertiary: 38 38 38;
+
+  --surface-default: 23 23 23;
+  --surface-elevated: 38 38 38;
+  --surface-overlay: 0 0 0 / 0.7;
+
+  --text-primary: 250 250 250;
+  --text-secondary: 163 163 163;
+  --text-tertiary: 115 115 115;
+  --text-inverse: 23 23 23;
+
+  --accent-primary: 129 140 248;
+  --accent-primary-hover: 165 180 252;
+
+  --border-default: 38 38 38;
+  --border-subtle: 30 30 30;
+  --border-strong: 64 64 64;
+}
+
+/* ===== TAILWIND THEME ===== */
+@theme inline {
+  /* Font Family */
+  --font-sans: 'Alpino', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Colors */
+  --color-bg-primary: rgb(var(--bg-primary));
+  --color-bg-secondary: rgb(var(--bg-secondary));
+  --color-bg-tertiary: rgb(var(--bg-tertiary));
+
+  --color-surface: rgb(var(--surface-default));
+  --color-surface-elevated: rgb(var(--surface-elevated));
+
+  --color-text-primary: rgb(var(--text-primary));
+  --color-text-secondary: rgb(var(--text-secondary));
+  --color-text-tertiary: rgb(var(--text-tertiary));
+  --color-text-inverse: rgb(var(--text-inverse));
+
+  --color-accent: rgb(var(--accent-primary));
+  --color-accent-hover: rgb(var(--accent-primary-hover));
+  --color-success: rgb(var(--accent-success));
+  --color-warning: rgb(var(--accent-warning));
+  --color-error: rgb(var(--accent-error));
+
+  --color-border: rgb(var(--border-default));
+  --color-border-subtle: rgb(var(--border-subtle));
+  --color-border-strong: rgb(var(--border-strong));
+
+  /* Fluid Typography */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+  --font-size-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+  --font-size-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3.5rem);
+  --font-size-5xl: clamp(3rem, 2rem + 5vw, 5rem);
+  --font-size-display: clamp(3.5rem, 2.5rem + 6vw, 7rem);
+
+  /* Spacing */
+  --spacing-section: clamp(4rem, 8vw, 8rem);
+  --spacing-container: clamp(1rem, 4vw, 2rem);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.04), 0 1px 3px rgb(0 0 0 / 0.06);
+  --shadow-md: 0 2px 4px rgb(0 0 0 / 0.03), 0 4px 8px rgb(0 0 0 / 0.06), 0 8px 16px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 4px 8px rgb(0 0 0 / 0.04), 0 8px 16px rgb(0 0 0 / 0.06), 0 16px 32px rgb(0 0 0 / 0.08), 0 24px 48px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgb(var(--accent-primary) / 0.3);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Z-Index */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-tooltip: 600;
+}
+
+/* ===== BASE STYLES ===== */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+}
+
+/* ===== FOCUS STYLES ===== */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background-color: rgb(var(--accent-primary) / 0.2);
+  color: var(--color-text-primary);
+}
+
+/* ===== SCROLLBAR (Webkit) ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-container);
+  padding-right: var(--spacing-container);
+}
+
+.section-padding {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-accent) 0%, rgb(var(--accent-secondary)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgb(var(--surface-default) / 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Animate on scroll placeholder */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-slow) var(--ease-default),
+              transform var(--duration-slow) var(--ease-default);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
