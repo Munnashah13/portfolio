@@ -1,20 +1,17 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { AnimatedText } from '@/components/motion/AnimatedText';
+import { AnimatedOrbs } from '@/components/motion/AnimatedOrbs';
 import Link from 'next/link';
 
 export function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center">
-      {/* Background gradient */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent" />
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      </div>
+      {/* Animated background orbs */}
+      <AnimatedOrbs />
 
       <div className="container">
         <div className="max-w-4xl">
