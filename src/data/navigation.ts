@@ -10,25 +10,19 @@ export const navigationLinks: NavigationItem[] = [
 export const socialLinks: SocialLink[] = [
   {
     platform: 'github',
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/Munnashah13',
     label: 'GitHub',
     icon: 'Github',
   },
   {
     platform: 'linkedin',
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'https://linkedin.com/in/munnashah',
     label: 'LinkedIn',
     icon: 'Linkedin',
   },
   {
-    platform: 'twitter',
-    url: 'https://twitter.com/yourusername',
-    label: 'Twitter',
-    icon: 'Twitter',
-  },
-  {
     platform: 'email',
-    url: 'mailto:your@email.com',
+    url: 'mailto:mshah16778@upei.ca',
     label: 'Email',
     icon: 'Mail',
   },

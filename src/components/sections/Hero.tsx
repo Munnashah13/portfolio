@@ -30,7 +30,7 @@ export function Hero() {
 
           {/* Name */}
           <h1 className="text-[clamp(2.5rem,8vw,5rem)] font-bold leading-tight mb-4">
-            <AnimatedText text="Your Name" className="text-text-primary" delay={0.2} />
+            <AnimatedText text="Munna Shah" className="text-text-primary" delay={0.2} />
           </h1>
 
           {/* Title */}

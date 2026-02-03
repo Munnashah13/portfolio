@@ -25,7 +25,7 @@ export default function AboutPage() {
               <div className="relative w-full h-full rounded-3xl overflow-hidden bg-bg-secondary border border-border-subtle">
                 {/* Profile image placeholder - replace with actual image */}
                 <div className="w-full h-full flex items-center justify-center text-text-tertiary">
-                  <span className="text-6xl font-bold">YN</span>
+                  <span className="text-6xl font-bold">MS</span>
                 </div>
               </div>
             </div>
@@ -37,7 +37,7 @@ export default function AboutPage() {
                 About Me
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
-                Hi, I&apos;m Your Name
+                Hi, I&apos;m Munna Shah
               </h1>
               <p className="text-text-secondary text-lg mb-6">
                 I&apos;m a full-stack developer with a passion for creating beautiful,
@@ -54,11 +54,11 @@ export default function AboutPage() {
               <div className="flex flex-wrap gap-4 mb-8">
                 <span className="flex items-center gap-2 text-text-secondary">
                   <MapPin className="h-4 w-4 text-accent" />
-                  San Francisco, CA
+                  Prince Edward Island, Canada
                 </span>
                 <span className="flex items-center gap-2 text-text-secondary">
                   <Mail className="h-4 w-4 text-accent" />
-                  your@email.com
+                  mshah16778@upei.ca
                 </span>
               </div>
 

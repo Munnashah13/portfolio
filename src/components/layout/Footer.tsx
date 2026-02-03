@@ -80,7 +80,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-text-tertiary text-sm">
-            &copy; {currentYear} Your Name. All rights reserved.
+            &copy; {currentYear} Munna Shah. All rights reserved.
           </p>
           <p className="text-text-tertiary text-sm">
             Built with Next.js & Tailwind CSS

@@ -53,11 +53,11 @@ export default function ContactPage() {
                     Email
                   </h3>
                   <a
-                    href="mailto:your@email.com"
+                    href="mailto:mshah16778@upei.ca"
                     className="flex items-center gap-3 text-text-secondary hover:text-accent transition-colors"
                   >
                     <Mail className="h-5 w-5" />
-                    your@email.com
+                    mshah16778@upei.ca
                   </a>
                 </div>
 
@@ -68,7 +68,7 @@ export default function ContactPage() {
                   </h3>
                   <div className="flex items-center gap-3 text-text-secondary">
                     <MapPin className="h-5 w-5" />
-                    San Francisco, CA
+                    Prince Edward Island, Canada
                   </div>
                 </div>
 

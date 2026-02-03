@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     'typescript',
     'portfolio',
   ],
-  authors: [{ name: 'Your Name' }],
-  creator: 'Your Name',
+  authors: [{ name: 'Munna Shah' }],
+  creator: 'Munna Shah',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: 'Portfolio | Full-Stack Developer',
     description:
       'Full-stack developer specializing in building exceptional digital experiences.',
-    creator: '@yourusername',
+    creator: '@munnashah13',
   },
   robots: {
     index: true,
