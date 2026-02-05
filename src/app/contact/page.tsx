@@ -53,11 +53,11 @@ export default function ContactPage() {
                     Email
                   </h3>
                   <a
-                    href="mailto:mshah16778@upei.ca"
+                    href="mailto:shahmunna122002@gmail.com"
                     className="flex items-center gap-3 text-text-secondary hover:text-accent transition-colors"
                   >
                     <Mail className="h-5 w-5" />
-                    mshah16778@upei.ca
+                    shahmunna122002@gmail.com
                   </a>
                 </div>
 

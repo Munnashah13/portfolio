@@ -15,8 +15,8 @@ Features include:
 - Rating and review system
 - Location-based job matching
 - In-app messaging between clients and workers`,
-    thumbnail: '/images/projects/oddjobs.jpg',
-    images: ['/images/projects/oddjobs-1.jpg', '/images/projects/oddjobs-2.jpg'],
+    thumbnail: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=500&fit=crop',
+    images: ['https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&h=750&fit=crop', 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=750&fit=crop'],
     techStack: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe', 'Tailwind CSS', 'Prisma'],
     links: {
       github: 'https://github.com/Munnashah13/odd-jobs',
@@ -41,7 +41,7 @@ Key features:
 - Scheduled deliveries
 - Medicine reminders
 - Integration with local pharmacies`,
-    thumbnail: '/images/projects/medicine-delivery.jpg',
+    thumbnail: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&h=500&fit=crop',
     techStack: ['React Native', 'Node.js', 'MongoDB', 'Express', 'Redux', 'Firebase'],
     links: {
       github: 'https://github.com/Munnashah13/medicine-delivery',

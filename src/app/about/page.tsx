@@ -39,9 +39,10 @@ export default function AboutPage() {
                 Hi, I&apos;m Munna Shah
               </h1>
               <p className="text-text-secondary text-lg mb-6">
-                I&apos;m a full-stack developer and student based in Prince Edward Island,
-                passionate about building clean, functional, and user-friendly web applications.
-                I love turning ideas into real products using modern technologies.
+                I&apos;m a full-stack developer and undergraduate Computer Science student
+                at the University of Prince Edward Island (UPEI), passionate about building
+                clean, functional, and user-friendly web applications. I love turning ideas
+                into real products using modern technologies.
               </p>
               <p className="text-text-secondary text-lg mb-8">
                 I specialize in React, Next.js, TypeScript, and Node.js. When I&apos;m not
@@ -56,7 +57,7 @@ export default function AboutPage() {
                 </span>
                 <span className="flex items-center gap-2 text-text-secondary">
                   <Mail className="h-4 w-4 text-accent" />
-                  mshah16778@upei.ca
+                  shahmunna122002@gmail.com
                 </span>
               </div>
 
@@ -64,8 +65,8 @@ export default function AboutPage() {
                 <Link href="/contact">
                   <Button>Get In Touch</Button>
                 </Link>
-                <a href="/resume.pdf" download>
-                  <Button variant="outline">Download Resume</Button>
+                <a href="https://www.linkedin.com/in/munna-shah-129b50317/" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline">View LinkedIn</Button>
                 </a>
               </div>
             </div>

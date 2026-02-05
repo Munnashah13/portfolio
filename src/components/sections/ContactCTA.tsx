@@ -27,9 +27,9 @@ export function ContactCTA() {
                   Get In Touch
                 </Button>
               </Link>
-              <a href="mailto:mshah16778@upei.ca">
+              <a href="mailto:shahmunna122002@gmail.com">
                 <Button variant="outline" size="lg">
-                  mshah16778@upei.ca
+                  shahmunna122002@gmail.com
                 </Button>
               </a>
             </div>

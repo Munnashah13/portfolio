@@ -16,13 +16,13 @@ export const socialLinks: SocialLink[] = [
   },
   {
     platform: 'linkedin',
-    url: 'https://linkedin.com/in/munnashah',
+    url: 'https://www.linkedin.com/in/munna-shah-129b50317/',
     label: 'LinkedIn',
     icon: 'Linkedin',
   },
   {
     platform: 'email',
-    url: 'mailto:mshah16778@upei.ca',
+    url: 'mailto:shahmunna122002@gmail.com',
     label: 'Email',
     icon: 'Mail',
   },
