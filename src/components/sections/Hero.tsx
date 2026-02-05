@@ -35,9 +35,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="text-[clamp(3rem,10vw,6.5rem)] font-black leading-[0.95] tracking-tight mb-6"
           >
-            <span className="text-white">Munna</span>
+            <span className="text-text-primary">Munna</span>
             <br />
-            <span className="text-white">Shah</span>
+            <span className="text-text-primary">Shah</span>
           </motion.h1>
 
           {/* Role line */}

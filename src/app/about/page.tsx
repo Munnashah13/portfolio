@@ -35,7 +35,7 @@ export default function AboutPage() {
               <Badge variant="default" className="mb-4">
                 About Me
               </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
                 Hi, I&apos;m Munna Shah
               </h1>
               <p className="text-text-secondary text-lg mb-6">
