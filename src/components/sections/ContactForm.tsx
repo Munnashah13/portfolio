@@ -60,13 +60,24 @@ export function ContactForm() {
     }
 
     try {
-      const response = await fetch('/api/contact', {
+      const data = {
+        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message'),
+        from_name: 'Portfolio Contact Form',
+      };
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to send message');
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.message || 'Failed to send message');
       }
 
       setFormState({
