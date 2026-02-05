@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/Badge';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
 import { experiences } from '@/data/experience';
 import { formatDate } from '@/lib/utils';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -22,10 +23,13 @@ export default function AboutPage() {
             <div className="relative aspect-square max-w-xs md:max-w-md mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-3xl" />
               <div className="relative w-full h-full rounded-3xl overflow-hidden bg-bg-secondary border border-border-subtle">
-                {/* Profile image placeholder - replace with actual image */}
-                <div className="w-full h-full flex items-center justify-center text-text-tertiary">
-                  <span className="text-6xl font-bold">MS</span>
-                </div>
+                <Image
+                  src="/images/me.jpg"
+                  alt="Munna Shah"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
           </ScrollReveal>
