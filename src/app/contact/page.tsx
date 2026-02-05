@@ -22,7 +22,7 @@ export default function ContactPage() {
       <div className="container">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 md:mb-16">
               <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
                 Get In Touch
               </h1>
@@ -33,7 +33,7 @@ export default function ContactPage() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Contact Form */}
             <ScrollReveal className="lg:col-span-3">
               <div className="bg-surface rounded-2xl p-6 md:p-8 border border-border-subtle">

@@ -11,6 +11,9 @@ export function ContactCTA() {
       <div className="container">
         <ScrollReveal>
           <div className="max-w-3xl mx-auto text-center">
+            <p className="text-accent font-medium mb-3 text-sm tracking-wider uppercase">
+              What&apos;s Next?
+            </p>
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
               Let&apos;s Work Together
             </h2>

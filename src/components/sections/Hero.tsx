@@ -1,58 +1,71 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { AnimatedText } from '@/components/motion/AnimatedText';
 import { AnimatedOrbs } from '@/components/motion/AnimatedOrbs';
 import { MagneticWrapper } from '@/components/motion/MagneticWrapper';
 import Link from 'next/link';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center">
+    <section className="relative min-h-screen flex items-center">
       {/* Animated background orbs */}
       <AnimatedOrbs />
 
       <div className="container">
-        <div className="max-w-4xl">
-          {/* Greeting */}
-          <motion.p
+        <div className="max-w-5xl">
+          {/* Availability badge */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-accent font-medium mb-4"
+            className="mb-8"
           >
-            Hi, my name is
-          </motion.p>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-sm font-medium text-accent">
+              <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+              Open to opportunities
+            </span>
+          </motion.div>
 
-          {/* Name */}
-          <h1 className="text-[clamp(2.5rem,8vw,5rem)] font-bold leading-tight mb-4">
-            <AnimatedText text="Munna Shah" className="text-text-primary" delay={0.2} />
-          </h1>
+          {/* Name - bold and dominant */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-[clamp(3rem,10vw,6.5rem)] font-black leading-[0.95] tracking-tight mb-6"
+          >
+            <span className="text-text-primary">Munna</span>
+            <br />
+            <span className="text-gradient">Shah</span>
+          </motion.h1>
 
-          {/* Title */}
-          <h2 className="text-[clamp(1.5rem,4vw,3rem)] font-bold text-text-secondary mb-6">
-            <AnimatedText text="I build things for the web." delay={0.4} />
-          </h2>
-
-          {/* Description */}
+          {/* Role line */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="text-text-secondary text-lg max-w-2xl mb-10"
+            transition={{ duration: 0.5, delay: 0.35 }}
+            className="text-xl md:text-2xl text-text-secondary font-medium mb-6 max-w-2xl"
           >
-            I&apos;m a full-stack developer specializing in building exceptional digital
-            experiences. Currently focused on creating accessible, human-centered
-            products with modern web technologies.
+            Full-Stack Developer &mdash; I design and build digital products
+            that are fast, accessible, and built to last.
+          </motion.p>
+
+          {/* Subtle tech stack mention */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="text-text-tertiary mb-10 text-sm tracking-wide"
+          >
+            React &middot; Next.js &middot; TypeScript &middot; Node.js &middot; Tailwind CSS
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.65 }}
             className="flex flex-wrap gap-4"
           >
             <MagneticWrapper>
@@ -70,24 +83,26 @@ export function Hero() {
               </Link>
             </MagneticWrapper>
           </motion.div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.2 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-6 h-10 rounded-full border-2 border-border-strong flex items-start justify-center p-1.5"
-            >
-              <motion.div className="w-1.5 h-1.5 bg-accent rounded-full" />
-            </motion.div>
-          </motion.div>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.2 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
+      >
+        <span className="text-text-tertiary text-xs tracking-widest uppercase">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <ArrowDown className="h-4 w-4 text-text-tertiary" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

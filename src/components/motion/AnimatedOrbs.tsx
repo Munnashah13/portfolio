@@ -2,10 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 interface Orb {
   id: number;
   size: number;
+  mobileSize: number;
   color: string;
   x: string;
   y: string;
@@ -18,6 +20,7 @@ const orbs: Orb[] = [
   {
     id: 1,
     size: 384,
+    mobileSize: 180,
     color: 'bg-accent/20',
     x: '15%',
     y: '10%',
@@ -28,6 +31,7 @@ const orbs: Orb[] = [
   {
     id: 2,
     size: 256,
+    mobileSize: 140,
     color: 'bg-accent/10',
     x: '70%',
     y: '60%',
@@ -38,6 +42,7 @@ const orbs: Orb[] = [
   {
     id: 3,
     size: 192,
+    mobileSize: 100,
     color: 'bg-accent/15',
     x: '80%',
     y: '15%',
@@ -48,6 +53,7 @@ const orbs: Orb[] = [
   {
     id: 4,
     size: 320,
+    mobileSize: 160,
     color: 'bg-accent/8',
     x: '5%',
     y: '65%',
@@ -58,6 +64,7 @@ const orbs: Orb[] = [
   {
     id: 5,
     size: 160,
+    mobileSize: 90,
     color: 'bg-accent/12',
     x: '45%',
     y: '5%',
@@ -69,6 +76,7 @@ const orbs: Orb[] = [
 
 export function AnimatedOrbs() {
   const prefersReducedMotion = useReducedMotion();
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -76,13 +84,15 @@ export function AnimatedOrbs() {
       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-transparent" />
 
       {/* Animated orbs */}
-      {orbs.map((orb) => (
+      {orbs.map((orb) => {
+        const orbSize = isMobile ? orb.mobileSize : orb.size;
+        return (
         <motion.div
           key={orb.id}
           className={`absolute rounded-full blur-3xl ${orb.color}`}
           style={{
-            width: orb.size,
-            height: orb.size,
+            width: orbSize,
+            height: orbSize,
             left: orb.x,
             top: orb.y,
           }}
@@ -108,7 +118,8 @@ export function AnimatedOrbs() {
                 }
           }
         />
-      ))}
+        );
+      })}
     </div>
   );
 }

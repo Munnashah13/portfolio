@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import { MapPin, Mail, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
@@ -18,9 +17,9 @@ export default function AboutPage() {
     <div className="section-padding">
       <div className="container">
         {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16 lg:mb-24">
           <ScrollReveal>
-            <div className="relative aspect-square max-w-md mx-auto lg:mx-0">
+            <div className="relative aspect-square max-w-xs md:max-w-md mx-auto lg:mx-0">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-transparent rounded-3xl" />
               <div className="relative w-full h-full rounded-3xl overflow-hidden bg-bg-secondary border border-border-subtle">
                 {/* Profile image placeholder - replace with actual image */}
@@ -40,15 +39,14 @@ export default function AboutPage() {
                 Hi, I&apos;m Munna Shah
               </h1>
               <p className="text-text-secondary text-lg mb-6">
-                I&apos;m a full-stack developer with a passion for creating beautiful,
-                functional, and user-friendly applications. With over 5 years of
-                experience in the industry, I&apos;ve had the opportunity to work on a
-                wide range of projects, from small startups to large enterprises.
+                I&apos;m a full-stack developer and student based in Prince Edward Island,
+                passionate about building clean, functional, and user-friendly web applications.
+                I love turning ideas into real products using modern technologies.
               </p>
               <p className="text-text-secondary text-lg mb-8">
-                I specialize in modern web technologies like React, Next.js, and
-                Node.js, and I&apos;m always eager to learn new tools and techniques
-                to improve my craft.
+                I specialize in React, Next.js, TypeScript, and Node.js. When I&apos;m not
+                coding, I&apos;m learning something new or working on personal projects
+                that push my skills forward.
               </p>
 
               <div className="flex flex-wrap gap-4 mb-8">
@@ -81,7 +79,7 @@ export default function AboutPage() {
               Work Experience
             </h2>
             <p className="text-text-secondary max-w-2xl">
-              A timeline of my professional journey in software development.
+              Real-world experience that shaped my work ethic and professional skills.
             </p>
           </div>
         </ScrollReveal>

@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/motion/ScrollReveal';
-import { StaggerContainer, StaggerItem } from '@/components/motion/StaggerContainer';
-import { skills, skillCategories, getSkillsByCategory } from '@/data/skills';
+import { skillGroups } from '@/data/skills';
 import { cn } from '@/lib/utils';
 
 export function Skills() {
@@ -11,59 +10,106 @@ export function Skills() {
     <section className="section-padding bg-bg-secondary/50">
       <div className="container">
         <ScrollReveal>
-          <div className="text-center mb-16">
+          <div className="mb-16">
+            <p className="text-accent font-medium mb-3 text-sm tracking-wider uppercase">
+              What I Work With
+            </p>
             <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
-              Skills & Technologies
+              Skills & Techniques
             </h2>
-            <p className="text-text-secondary max-w-2xl mx-auto">
-              A collection of tools and technologies I use to bring ideas to life.
+            <p className="text-text-secondary max-w-xl">
+              The technologies and tools I use to turn ideas into real, working products.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
-            <ScrollReveal key={category.id} delay={categoryIndex * 0.1}>
-              <div className="bg-surface rounded-2xl p-6 border border-border-subtle">
-                <h3 className="text-lg font-semibold text-text-primary mb-6 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-accent" />
-                  {category.label}
-                </h3>
-                <StaggerContainer className="space-y-4" staggerDelay={0.05}>
-                  {getSkillsByCategory(category.id).map((skill) => (
-                    <StaggerItem key={skill.name}>
-                      <SkillBar name={skill.name} level={skill.level} />
-                    </StaggerItem>
-                  ))}
-                </StaggerContainer>
-              </div>
-            </ScrollReveal>
-          ))}
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Frontend - spans 2 columns on large */}
+          <ScrollReveal className="lg:col-span-2">
+            <SkillCard group={skillGroups[0]} index={0} />
+          </ScrollReveal>
+
+          {/* Backend */}
+          <ScrollReveal delay={0.1}>
+            <SkillCard group={skillGroups[1]} index={1} />
+          </ScrollReveal>
+
+          {/* Data */}
+          <ScrollReveal delay={0.15}>
+            <SkillCard group={skillGroups[2]} index={2} />
+          </ScrollReveal>
+
+          {/* DevOps */}
+          <ScrollReveal delay={0.2}>
+            <SkillCard group={skillGroups[3]} index={3} />
+          </ScrollReveal>
+
+          {/* Workflow */}
+          <ScrollReveal delay={0.25}>
+            <SkillCard group={skillGroups[4]} index={4} />
+          </ScrollReveal>
         </div>
       </div>
     </section>
   );
 }
 
-function SkillBar({ name, level }: { name: string; level: number }) {
+function SkillCard({
+  group,
+  index,
+}: {
+  group: (typeof skillGroups)[number];
+  index: number;
+}) {
   return (
-    <div className="space-y-2">
-      <div className="flex justify-between items-center">
-        <span className="text-sm font-medium text-text-primary">{name}</span>
-        <span className="text-xs text-text-tertiary">{level}%</span>
+    <motion.div
+      className="group relative h-full rounded-2xl bg-surface border border-border-subtle p-6 md:p-8 overflow-hidden transition-shadow hover:shadow-md"
+      whileHover={{ y: -2 }}
+      transition={{ duration: 0.2 }}
+    >
+      {/* Subtle gradient accent in corner */}
+      <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/10 transition-colors" />
+
+      {/* Category number */}
+      <span className="text-[5rem] md:text-[6rem] font-black text-bg-secondary/80 absolute -bottom-4 -right-2 leading-none select-none">
+        {String(index + 1).padStart(2, '0')}
+      </span>
+
+      <div className="relative z-10">
+        {/* Header */}
+        <div className="mb-6">
+          <h3 className="text-xl font-bold text-text-primary mb-1">
+            {group.label}
+          </h3>
+          <p className="text-text-tertiary text-sm">{group.description}</p>
+        </div>
+
+        {/* Skill chips */}
+        <div className="flex flex-wrap gap-2">
+          {group.skills.map((skill, i) => (
+            <motion.span
+              key={skill.name}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05, duration: 0.3 }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: 'rgb(var(--accent-primary) / 0.15)',
+              }}
+              className={cn(
+                'px-3.5 py-2 rounded-xl text-sm font-medium',
+                'bg-bg-secondary text-text-primary',
+                'border border-border-subtle',
+                'cursor-default transition-colors'
+              )}
+            >
+              {skill.name}
+            </motion.span>
+          ))}
+        </div>
       </div>
-      <div className="h-2 bg-bg-secondary rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: `${level}%` }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className={cn(
-            'h-full rounded-full',
-            level >= 90 ? 'bg-accent' : level >= 75 ? 'bg-accent/80' : 'bg-accent/60'
-          )}
-        />
-      </div>
-    </div>
+    </motion.div>
   );
 }

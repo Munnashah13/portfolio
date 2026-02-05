@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-bg-secondary/50">
       <div className="container section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="text-xl font-bold text-text-primary">

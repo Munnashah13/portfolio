@@ -16,11 +16,14 @@ export function FeaturedProjects() {
         <ScrollReveal>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12 gap-4">
             <div>
+              <p className="text-accent font-medium mb-3 text-sm tracking-wider uppercase">
+                Selected Work
+              </p>
               <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-4">
                 Featured Projects
               </h2>
               <p className="text-text-secondary max-w-xl">
-                A selection of projects I&apos;ve worked on recently.
+                A selection of projects I&apos;ve built with modern web technologies.
               </p>
             </div>
             <Link href="/projects">

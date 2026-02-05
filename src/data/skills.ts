@@ -1,45 +1,84 @@
-import type { Skill } from '@/types';
-
-export const skills: Skill[] = [
-  // Frontend
-  { name: 'React', level: 95, category: 'frontend' },
-  { name: 'Next.js', level: 90, category: 'frontend' },
-  { name: 'TypeScript', level: 90, category: 'frontend' },
-  { name: 'Tailwind CSS', level: 95, category: 'frontend' },
-  { name: 'Vue.js', level: 75, category: 'frontend' },
-
-  // Backend
-  { name: 'Node.js', level: 90, category: 'backend' },
-  { name: 'Express', level: 85, category: 'backend' },
-  { name: 'Python', level: 80, category: 'backend' },
-  { name: 'GraphQL', level: 75, category: 'backend' },
-
-  // Database
-  { name: 'PostgreSQL', level: 85, category: 'database' },
-  { name: 'MongoDB', level: 80, category: 'database' },
-  { name: 'Redis', level: 70, category: 'database' },
-  { name: 'Prisma', level: 85, category: 'database' },
-
-  // DevOps
-  { name: 'Docker', level: 80, category: 'devops' },
-  { name: 'AWS', level: 75, category: 'devops' },
-  { name: 'CI/CD', level: 80, category: 'devops' },
-  { name: 'Vercel', level: 90, category: 'devops' },
-
-  // Tools
-  { name: 'Git', level: 95, category: 'tools' },
-  { name: 'VS Code', level: 95, category: 'tools' },
-  { name: 'Figma', level: 70, category: 'tools' },
-];
-
-export function getSkillsByCategory(category: string): Skill[] {
-  return skills.filter((skill) => skill.category === category);
+export interface SkillItem {
+  name: string;
+  icon?: string;
 }
 
-export const skillCategories = [
-  { id: 'frontend', label: 'Frontend' },
-  { id: 'backend', label: 'Backend' },
-  { id: 'database', label: 'Database' },
-  { id: 'devops', label: 'DevOps' },
-  { id: 'tools', label: 'Tools' },
+export interface SkillGroup {
+  id: string;
+  label: string;
+  description: string;
+  skills: SkillItem[];
+  accent: string;
+  size: 'large' | 'medium' | 'small';
+}
+
+export const skillGroups: SkillGroup[] = [
+  {
+    id: 'frontend',
+    label: 'Frontend',
+    description: 'Building interfaces that feel alive',
+    skills: [
+      { name: 'React' },
+      { name: 'Next.js' },
+      { name: 'TypeScript' },
+      { name: 'Tailwind CSS' },
+      { name: 'Framer Motion' },
+      { name: 'HTML/CSS' },
+    ],
+    accent: 'accent',
+    size: 'large',
+  },
+  {
+    id: 'backend',
+    label: 'Backend',
+    description: 'Powering what runs behind the scenes',
+    skills: [
+      { name: 'Node.js' },
+      { name: 'Express' },
+      { name: 'Python' },
+      { name: 'REST APIs' },
+      { name: 'GraphQL' },
+    ],
+    accent: 'accent',
+    size: 'medium',
+  },
+  {
+    id: 'database',
+    label: 'Data',
+    description: 'Structured storage, fast retrieval',
+    skills: [
+      { name: 'PostgreSQL' },
+      { name: 'MongoDB' },
+      { name: 'Prisma' },
+      { name: 'Redis' },
+    ],
+    accent: 'accent',
+    size: 'small',
+  },
+  {
+    id: 'devops',
+    label: 'DevOps',
+    description: 'Ship fast, ship reliably',
+    skills: [
+      { name: 'Docker' },
+      { name: 'AWS' },
+      { name: 'CI/CD' },
+      { name: 'Vercel' },
+    ],
+    accent: 'accent',
+    size: 'small',
+  },
+  {
+    id: 'tools',
+    label: 'Workflow',
+    description: 'The tools I reach for daily',
+    skills: [
+      { name: 'Git' },
+      { name: 'VS Code' },
+      { name: 'Figma' },
+      { name: 'Linux' },
+    ],
+    accent: 'accent',
+    size: 'medium',
+  },
 ];
