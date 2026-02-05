@@ -189,9 +189,10 @@
 
 /* ===== BASE STYLES ===== */
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--accent-primary) / 0.3) transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -231,21 +232,28 @@ body {
 
 /* ===== SCROLLBAR (Webkit) ===== */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-strong);
-  border-radius: var(--radius-full);
+  background: rgb(var(--accent-primary) / 0.3);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-tertiary);
+  background: rgb(var(--accent-primary) / 0.6);
+}
+
+/* ===== CUSTOM CURSOR ===== */
+@media (pointer: fine) {
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
 }
 
 /* ===== UTILITY CLASSES ===== */

@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useMotionTemplate } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
 import { cn } from '@/lib/utils';
+import { useTilt } from '@/hooks/useTilt';
 import type { Project } from '@/types';
 
 interface ProjectCardProps {
@@ -16,9 +17,14 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const [imageError, setImageError] = useState(false);
+  const tilt = useTilt({ maxTilt: 8, perspective: 1000, scale: 1.02 });
+
+  const glareBackground = useMotionTemplate`radial-gradient(circle at ${tilt.glareX}% ${tilt.glareY}%, rgba(255,255,255,0.15) 0%, transparent 80%)`;
 
   return (
     <motion.article
+      ref={tilt.ref as React.Ref<HTMLElement>}
+      data-cursor="project"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -26,9 +32,33 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         delay: index * 0.1,
         ease: [0.4, 0, 0.2, 1],
       }}
-      whileHover={{ y: -4 }}
+      whileHover={!tilt.isActive ? { y: -4 } : undefined}
+      style={
+        tilt.isActive
+          ? {
+              rotateX: tilt.style.rotateX,
+              rotateY: tilt.style.rotateY,
+              scale: tilt.style.scale,
+              transformPerspective: tilt.style.transformPerspective,
+            }
+          : undefined
+      }
+      onMouseMove={tilt.onMouseMove}
+      onMouseEnter={tilt.onMouseEnter}
+      onMouseLeave={tilt.onMouseLeave}
       className="group relative rounded-2xl bg-surface border border-border-subtle shadow-sm hover:shadow-md transition-all duration-[--duration-normal] overflow-hidden"
     >
+      {/* Glare overlay */}
+      {tilt.isActive && (
+        <motion.div
+          className="absolute inset-0 pointer-events-none z-10 rounded-2xl"
+          style={{
+            background: glareBackground,
+            opacity: tilt.glareOpacity,
+          }}
+        />
+      )}
+
       <Link
         href={`/projects/${project.slug}`}
         className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-2xl"
@@ -37,15 +67,24 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         {/* Image */}
         <div className="relative aspect-video overflow-hidden bg-bg-secondary">
           {!imageError ? (
-            <Image
-              src={project.thumbnail}
-              alt={project.title}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-              className="object-cover transition-transform duration-[--duration-slow] group-hover:scale-105"
-              onError={() => setImageError(true)}
-              priority={index < 3}
-            />
+            <motion.div
+              className="w-full h-full"
+              style={
+                tilt.isActive
+                  ? { x: tilt.parallaxX, y: tilt.parallaxY }
+                  : undefined
+              }
+            >
+              <Image
+                src={project.thumbnail}
+                alt={project.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                className="object-cover transition-transform duration-[--duration-slow] group-hover:scale-105"
+                onError={() => setImageError(true)}
+                priority={index < 3}
+              />
+            </motion.div>
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="text-text-tertiary">No image</span>
@@ -93,7 +132,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       </Link>
 
       {/* External Links */}
-      <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-20">
         {project.links.github && (
           <a
             href={project.links.github}

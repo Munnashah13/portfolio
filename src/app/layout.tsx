@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import { ThemeProvider } from '@/providers/ThemeProvider';
+import { SmoothScrollProvider } from '@/providers/SmoothScrollProvider';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { Preloader } from '@/components/ui/Preloader';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
+import { CustomCursor } from '@/components/ui/CustomCursor';
+import { NoiseOverlay } from '@/components/ui/NoiseOverlay';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -68,13 +73,19 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-bg-primary text-text-primary antialiased font-sans">
-        <ThemeProvider>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1 pt-16 lg:pt-20">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <Preloader />
+        <ScrollProgress />
+        <SmoothScrollProvider>
+          <ThemeProvider>
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1 pt-16 lg:pt-20">{children}</main>
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </SmoothScrollProvider>
+        <CustomCursor />
+        <NoiseOverlay />
       </body>
     </html>
   );

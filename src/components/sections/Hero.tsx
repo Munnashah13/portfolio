@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { AnimatedText } from '@/components/motion/AnimatedText';
 import { AnimatedOrbs } from '@/components/motion/AnimatedOrbs';
+import { MagneticWrapper } from '@/components/motion/MagneticWrapper';
 import Link from 'next/link';
 
 export function Hero() {
@@ -54,16 +55,20 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.8 }}
             className="flex flex-wrap gap-4"
           >
-            <Link href="/projects">
-              <Button size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>
-                View My Work
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button variant="outline" size="lg">
-                Get In Touch
-              </Button>
-            </Link>
+            <MagneticWrapper>
+              <Link href="/projects">
+                <Button size="lg" rightIcon={<ArrowRight className="h-5 w-5" />}>
+                  View My Work
+                </Button>
+              </Link>
+            </MagneticWrapper>
+            <MagneticWrapper>
+              <Link href="/contact">
+                <Button variant="outline" size="lg">
+                  Get In Touch
+                </Button>
+              </Link>
+            </MagneticWrapper>
           </motion.div>
 
           {/* Scroll indicator */}

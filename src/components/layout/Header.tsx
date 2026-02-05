@@ -8,6 +8,7 @@ import { Menu } from 'lucide-react';
 import { useMediaQuery } from '@/hooks';
 import { ThemeToggle } from './ThemeToggle';
 import { MobileMenu } from './MobileMenu';
+import { MagneticWrapper } from '@/components/motion/MagneticWrapper';
 import { cn } from '@/lib/utils';
 import { navigationLinks } from '@/data/navigation';
 
@@ -74,9 +75,11 @@ export function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <NavLink href={link.href} isActive={pathname === link.href}>
-                    {link.label}
-                  </NavLink>
+                  <MagneticWrapper radius={40} strength={6}>
+                    <NavLink href={link.href} isActive={pathname === link.href}>
+                      {link.label}
+                    </NavLink>
+                  </MagneticWrapper>
                 </motion.li>
               ))}
             </ul>
